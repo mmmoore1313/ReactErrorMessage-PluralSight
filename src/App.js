@@ -7,10 +7,24 @@ function App() {
   const [value, setValue] = useState("")
   const [isValid, setIsValid] = useState(false)
   
-  function handleSubmission(){}
+  function handleSubmission(){
+    if (value.length > 3 || value.length < 3){
+      setIsValid(false)
+    }else{
+      setIsValid(true)
+    }
+  }
   
   return (
   <div className='App'>
+    {isValid
+      ? <Alert variant='success'>
+          Hurray! You followed some directions.
+        </Alert>
+      : <Alert variant='danger'>
+          Opps! Try again!
+        </Alert>
+    }
     <div>
       <h1>Word Master</h1>
       <p>Enter A Three Letter Word</p>
