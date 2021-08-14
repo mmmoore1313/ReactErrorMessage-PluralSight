@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import React, {useState} from 'react'
+import Alert from 'react-bootstrap/Alert'
 import './App.css';
 
+
 function App() {
+  const [value, setValue] = useState("")
+  const [isValid, setIsValid] = useState(false)
+  
+  function handleSubmission(){}
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  <div className='App'>
+    <div>
+      <h1>Word Master</h1>
+      <p>Enter A Three Letter Word</p>
+      <input type='text' onChange={(e) => setValue(e.target.value)} value={value} />
+      <button onClick={handleSubmission}>
+        Submit
+      </button>
     </div>
+  </div>
   );
 }
 
