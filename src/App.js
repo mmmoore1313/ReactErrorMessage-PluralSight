@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Alert from 'react-bootstrap/Alert'
 import './App.css';
 
@@ -6,6 +6,14 @@ import './App.css';
 function App() {
   const [value, setValue] = useState("")
   const [isValid, setIsValid] = useState(false)
+  const [count, setCount] = useState(0)
+  
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setCount(1)
+    }, 3000)
+    return () => clearTimeout(timeout)
+  },[count])
   
   function handleSubmission(){
     if (value.length > 3 || value.length < 3){
@@ -13,6 +21,10 @@ function App() {
     }else{
       setIsValid(true)
     }
+  }
+  
+  function handleClose() {
+    
   }
   
   return (
